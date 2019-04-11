@@ -11,50 +11,50 @@
 </head>
 <body>
     <script>
-        // 第一题：json字符串转json对象        
-        var a='{"name":"Mike","sex":"女","age":"29"}';
-        // var obj = str.parseJSON(); 
-        // var aToObj=eval('('+b+')')
-        var aToObj=JSON.parse(a);        
-        document.write(aToObj.name+" "+aToObj.sex+" "+aToObj.age+'<br>');
+//         // 第一题：json字符串转json对象        
+//         var a='{"name":"Mike","sex":"女","age":"29"}';
+//         // var obj = str.parseJSON(); 
+//         // var aToObj=eval('('+b+')')
+//         var aToObj=JSON.parse(a);        
+//         document.write(aToObj.name+" "+aToObj.sex+" "+aToObj.age+'<br>');
 
-        // 第二题：json字符串转json数组
-        var b='[{"name":"Mikkk","sex":"女","age":"29"},{"name":"Jing","sex":"女","age":"24"},{"name":"Lang","sex":"男","age":"23"}]';
-        // var bToObj= JSON.parse(b);
-        // for(var i =0;i<bToObj.length;i++){
-        //     document.write(bToObj[i].name+" "+bToObj[i].sex+" "+bToObj[i].age+'<br>');
-        // }
+//         // 第二题：json字符串转json数组
+//         var b='[{"name":"Mikkk","sex":"女","age":"29"},{"name":"Jing","sex":"女","age":"24"},{"name":"Lang","sex":"男","age":"23"}]';
+//         // var bToObj= JSON.parse(b);
+//         // for(var i =0;i<bToObj.length;i++){
+//         //     document.write(bToObj[i].name+" "+bToObj[i].sex+" "+bToObj[i].age+'<br>');
+//         // }
 
-        var bToArr = b.split(',');
-        document.write(bToArr+'<br>');
-        document.write(bToArr[1]+'<br>')
+//         var bToArr = b.split(',');
+//         document.write(bToArr+'<br>');
+//         document.write(bToArr[1]+'<br>')
 
-         // 第三题：json对象转json字符串
-        var c={"name":"tom","sex":"男","age":"24"}; 
-        // var aToStr=a.toJSONString();
-        var cToStr=JSON.stringify(c); 
-        document.write(cToStr+'<br>');
+//          // 第三题：json对象转json字符串
+//         var c={"name":"tom","sex":"男","age":"24"}; 
+//         // var aToStr=a.toJSONString();
+//         var cToStr=JSON.stringify(c); 
+//         document.write(cToStr+'<br>');
 
-        // 第四题：json数组转字符串
-        var arr =[1,2,3,'jing','wen'];
-        var str = arr.join(',');
-        document.write(str+'<br>');
+//         // 第四题：json数组转字符串
+//         var arr =[1,2,3,'jing','wen'];
+//         var str = arr.join(',');
+//         document.write(str+'<br>');
 
-        // 第五题：解析Base64编码
-        var b = new Base64();  
-        var str = b.encode("admin:admin");  
-        alert("base64 encode:" + str);  
-　　　　　//解密
-        str = b.decode(str);  
-        alert("base64 decode:" + str); 
+//         // 第五题：解析Base64编码
+//         var b = new Base64();  
+//         var str = b.encode("admin:admin");  
+//         alert("base64 encode:" + str);  
+// 　　　　　//解密
+//         str = b.decode(str);  
+//         alert("base64 decode:" + str); 
 
-        // 第六题：md5加密
-        var hash = hex_md5("123dafd");
-        alert(hash)
+//         // 第六题：md5加密
+//         var hash = hex_md5("123dafd");
+//         alert(hash)
 
-        // 第七题：sha1加密----据说这是最安全的加密
-        var sha = hex_sha1('mima123465')
-        alert(sha) 
+//         // 第七题：sha1加密----据说这是最安全的加密
+//         var sha = hex_sha1('mima123465')
+//         alert(sha) 
     </script>
 </body>
 </html>
