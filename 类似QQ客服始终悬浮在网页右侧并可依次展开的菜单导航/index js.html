@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>类似QQ客服始终悬浮在网页右侧并可依次展开的菜单导航</title>
+<link href="css/css.css" type="text/css" rel="stylesheet" />
+<script src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+   $(function() {
+       var timer = null;
+       $(".box").hover(function() {
+              clearTimeout(timer);
+             timer = setTimeout(function() {
+                    $(".box").find("a").each(function(index,el){
+                           /*alert(index);*/
+                           setTimeout(function() {
+                                  $(el).stop().animate({"right":0},300);
+                           },50*index);
+                    })
+             },200)
+       }, function() {
+              if(timer){
+                     clearTimeout(timer);
+              }
+              $(this).find("a").each(function(index,el) {
+                     setTimeout(function(){
+                            $(el).stop().animate({"right":-110},300)
+                     },50*index);
+              })
+       })
+   })
+</script>
+</head>
+<body>
+<div class="box">
+       <a href='#'><span>0</span>Flash素材</a>
+       <a href='#'><span>1</span>菜单导航</a>
+       <a href='#'><span>2</span>时间日期</a>
+       <a href='#'><span>3</span>焦点图</a>
+       <a href='#'><span>4</span>tab标签</a>
+       <a href='#'><span>5</span>jquery特效</a>
+       <a href='#'><span>6</span>在线客服</a>
+       <a href='#'><span>7</span>广告代码</a>
+       <a href='#'><span>8</span>相册代码</a>
+       <a href='#'><span>9</span>图片特效</a>
+       <a href='#'><span>10</span>名站特效</a>
+       <a href='#'><span>11</span>视频播放</a>
+       <a href='#'><span>12</span>其他代码</a>
+</div>
+<div style="height:1000px;"></div>
+</body>
+</html>
