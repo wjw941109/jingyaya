@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 第一题：计算2的n次幂，n可输入，n为自然数
+        let n = parseInt(prompt('第一题--计算2的n次幂:请随便输入一个数'));
+        let b =  Math.pow(2,n);
+        // let num = 1;
+        // for(let i =0;i<n;i++){
+        //     num*=2;
+        // }
+        // document.write(num)
+
+        document.write('第一题--计算2的n次幂结果为:'+b+'<br>');       
+        // 第二题：计算a的阶乘,a可输入
+        let a = parseInt(prompt('第二题--计算a的阶乘:请随便输入一个数'));
+        let c = 1;
+        for(let i = 1;i<=a;i++){
+            c*=i;            
+        }
+        document.write('第二题:计算a的阶乘,结果为:'+c+'<br>')
+
+        // 第三题：著名的斐波那契数列，1 1 2 3 5 8 输出第d项
+        let d = parseInt(prompt('第三题--斐波那契数列:请随便输入一个数'));
+        for(let i =1;i<=d;i++){
+            document.write('第三题:斐波那契数列'+series(i)+'<br>')
+        }
+        function series(z){
+            if(z==1){
+                return 1
+            }else if(z==2){
+                return 1
+            }else{
+                return series(z-1)+series(z-2)
+            }
+        }    
+
+       // 第四题：编写一程序，输入一个三位数的正整数，输出时方向输出。如：输入456，输出654
+       let f = prompt('第四题:请随便输入一个三位数的正整数');
+       let f1 = f.split("").reverse().join("");
+       document.write('第四题--输入一个三位数的正整数，输出时方向输出,结果为'+f1+'<br>')
+
+        // 第五题:输入a,b,c三个数字，打印出最大的。
+        let arr = [1,5,9]
+        document.write('第五题'+'数组中最大值是'+Math.max.apply(Math,arr)+'<br>')
+        document.write('第五题'+'数组中最小值是'+Math.min.apply(Math,arr)+'<br>')
+        
+        // 第六题：打印出100以内的质数
+        for(let i =2;i<=100;i++){
+            let flag = true;
+            for(let j =2;j<i;j++){
+                if(i%j==0){
+                    flag=false;
+                }
+            }
+            if(flag){
+                document.write('100以内的质数为'+i+"<br>");
+            }            
+        }
+    </script>
+</body>
+</html>
