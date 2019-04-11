@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>图片懒加载</title>
+    <style>
+        .container{
+            width:100%;
+        }
+        .img-area{
+            height:600px;
+            margin-top: 180px;
+            text-align: center
+        }
+        img{
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="img-area">
+            <img class="my-photo" alt="loading" data-src="images/1.jpg">
+        </div>
+        <div class="img-area">
+            <img class="my-photo" alt="loading" data-src="images/2.jpg">
+        </div>
+        <div class="img-area">
+            <img class="my-photo" alt="loading" data-src="images/3.jpg">
+        </div>
+        <div class="img-area">
+            <img class="my-photo" alt="loading" data-src="images/4.jpg">
+        </div>
+        <div class="img-area">
+            <img class="my-photo" alt="loading" data-src="images/5.jpg">
+        </div>
+        <div class="img-area">
+            <img class="my-photo" alt="loading" data-src="images/6.jpg">
+        </div>
+        <div class="img-area">
+            <img class="my-photo" alt="loading" data-src="images/7.jpg">
+        </div>
+        <div class="img-area">
+            <img class="my-photo" alt="loading" data-src="images/8.jpg">
+        </div>
+    </div>
+    <script>
+        window.onload=checkImgs;
+        // 函数节流(throttle)是指阻止一个函数在很短时间间隔内连续调用
+        // 只有当上一次函数执行后达到规定的时间间隔, 才能进行下一次调用. 
+        // 但要保证一个累计最小调用时间间隔(例如拖拽类的节流需要有连续效果)
+        // 函数节流用于onresize, onscroll等短时间内会多次触发的事件
+        window.onscroll = throttle(checkImgs);
+        function isInSight(el) {
+            // const bound = el.getBoundingClientRect()来表示图片到可视区域顶部距离
+            const bound = el.getBoundingClientRect();
+            // 可视区域的高度
+            const clientHeight = window.innerHeight;
+            //如果只考虑向下滚动加载
+            //const clientWidth=window.innerWeight;
+            return bound.top <= clientHeight + 100;
+        }
+
+        // 加载图片
+        // 页面打开时需要对所有图片进行检查，是否在可视区域内，如果是就加载
+        let index = 0;
+        function checkImgs() {
+            const imgs = document.querySelectorAll('.my-photo');
+            for (let i = index; i < imgs.length; i++) {
+                if (isInSight(imgs[i])) {
+                    loadImg(imgs[i]);
+                    index = i;
+                }
+            }           
+        }
+
+        function loadImg(el) {
+            if (!el.src) {
+                const source = el.dataset.src;
+                el.src = source;
+            }
+        }
+
+        // 函数节流
+        // 所谓的函数节流，也就是让一个函数不要执行的太频繁，减少一些过快的调用来节流
+        // 基本步骤：
+        //     1.获取第一次触发事件的时间戳
+        //     2.获取第二次触发事件的时间戳
+        //     3.时间差如果大于某个阈值就执行事件，然后重置第一个时间
+        function throttle(fn, mustRun = 500) {
+            const timer = null;
+            let previous = null;
+            return function() {
+                const now = new Date();
+                const context = this;
+                const args = arguments;
+                if (!previous) {
+                    previous = now;
+                }
+                const remaining = now - previous;
+                // 这里的mustRun就是调用函数的时间间隔，无论多么频繁的调用fn，
+                // 只有remaining>=mustRun时fn才能被执行。
+                if (mustRun && remaining >= mustRun) {
+                    fn.apply(context, args);
+                    previous = now;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

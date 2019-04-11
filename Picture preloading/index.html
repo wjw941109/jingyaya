@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>图片预加载</title>  
+    <script src="jquery.min.js" type="text/javascript"></script>
+    <script src="jquery.lazyload.js" type="text/javascript"></script>
+</head>
+<body>
+    <!-- <img data-original="images/chaoliu.jpg" alt="" class="lazy" >
+    <img data-original="images/chaoliu1.jpg" alt="" class="lazy" > -->
+    <img src="images/loding.gif" alt="">
+    <img src="images/chaoliu.jpg" alt="">
+    <img src="images/chaoliu1.jpg" alt="">
+    <script>
+        // // jQuery实现图片预加载
+        // $(function (){
+        //     $("img").lazyload({
+        //         placeholder:"images/loding.gif",   
+        //         effect:"fadeIn",
+        //         event:"mouseover"
+        //     })
+        // })
+
+        // js实现图片预加载
+        function preimg(arr){
+            var img=[],
+            for(var i=0;i<arr.length;i++){
+                img[i]=new Image();
+                img[i].src=arr[i];
+            }
+        }
+        preimg(["images/loding.gif","images/chaoliu.jpg","images/chaoliu1.jpg"])
+
+    </script>
+</body>
+</html>
