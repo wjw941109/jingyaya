@@ -1,0 +1,39 @@
+replace() 方法用于在字符串中用一些字符替换另一些字符，或替换一个与正则表达式匹配的子串
+substring() 方法用于提取字符串中介于两个指定下标之间的字符。
+substring() 方法返回的子串包括 开始 处的字符，但不包括 结束 处的字符
+parseInt（）取整，无论小数点后面是什么数都不要
+Math.floor(5.55) //向下取整 结果为5 
+Math.floor(5.99) //向下取整 结果为5 
+
+Math.ceil(5.21) //向上取整，结果为6 
+
+Math.ceil(5.88) //向上取整，结果为6 
+
+Math.round(5.78) //四舍五入 结果为6 
+
+Math.round(5.33) //结果为5 
+
+一.dom的增删改查
+1.获取dom元素
+(1.)通过id获取 document.getElementById("id")
+(2.)通过class获取 getElementsByClassName("className") 注意,返回结果是一个数组
+(3.)getElementsByName("name") 根据name属性查找元素(数组)
+(4.)getElementsByTagName 通过html标签名称查找元素(数组)
+(5.)遍历
+children属性 获取子元素
+parentElement属性 获取父节点
+nextElementSibling属性 获取当前元素的下一个元素
+previousElementSibling 获取当前元素的下一个元素
+2.添加dom元素
+prepend 追加元素到开头
+append 追加元素到末尾
+3.修改
+setAttribute修改元素的属性
+4.删除
+removeChild(节点元素)
+
+二.事件
+onclick onmouseover addEventListener:监听
+document.getElementById('id').addEventListener('click',()=>{
+            alert('hello')
+        })
