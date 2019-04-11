@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jingyaya</title>
+    <link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script src="js/main.js"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="flt logo"><img src="images/logo.jpg"/></div>
+        <div class="flt nav" id="tabHeader">
+            <a href="#">选项卡一</a>
+            <a href="#">选项卡二</a>
+            <a href="#">选项卡三</a>
+            <a href="#">选项卡四</a>
+            <a href="#">选项卡五</a>
+            <a href="#">选项卡六</a>
+            <a href="#">选项卡七</a>
+        </div>
+        <div class="frt login-regist">
+            <a href="">登录</a>
+            <!-- 注意，a标签可以跳转也可以点击，这样事件会无效 -->
+            <a href="#" onclick="showhide()">注册</a>
+            </ul>
+        </div>
+        <form class="header-form frt">
+            <input class="form-input" name="" placeholder="请输入搜索内容">
+            <i class="iconfont icon-sousuo"></i>
+        </form>
+    </div>
+    <div id="tabContent"> 
+        <div  style="display: block;">选项卡一对应的内容一</div>
+        <div>选项卡二对应的内容二</div>
+        <div>选项卡三对应的内容三</div>
+        <div>选项卡四对应的内容四</div>
+        <div>选项卡五对应的内容五</div>
+        <div>选项卡六对应的内容六</div>
+        <div>选项卡七对应的内容七</div>
+    </div>
+
+    <!-- 注册  -->
+    <div id="regist_div">
+        <div class="shade"></div>
+        <div class="regist">
+            <h3>用户注册</h3>
+            <label for="user">用户名:</label>
+            <input type="text" onblur='userbtn()' id="user" required>
+            <p id='userText' class="text"></p>
+
+            <label for="password">密码:</label>
+            <input type="password" id="password" onblur='passwordbtn()' required>
+            <p id='passwordText' class="text"></p>
+
+            <label for="e-mail">邮箱:</label>
+            <input type="text" onblur='mailbtn()' id="mail">
+            <p id='mailText' class="text"></p>
+
+            <label for="idCard" >身份证号码:</label>    
+            <input type="text" onblur='cardbtn()' id="idCard">
+            <p id='cardText' class="text"></p>
+
+            <label for="telnum">手机号:</label>
+            <input type="text" onblur='telnumbtn()' id="telnum">
+            <p id='telnumText' class="text"></p>
+
+            <label for="verification">手机验证码:</label>
+            <input type="text" class="verification" id="verification" >
+            <!-- <p id='telnumText' class="text"></p> -->
+
+            <button class="gain">获取手机验证码</button>
+            <input type="submit" class="submit" id='btn'>
+        </div>
+    </div>
+    <script type="text/javascript">
+        // tab内容
+        let tab = document.getElementById('tabHeader').getElementsByTagName('a');
+        let tabContent=document.getElementById('tabContent').getElementsByTagName('div');
+        for(let i=0;i<tab.length;i++){
+            tab[i].index=i;
+            tab[i].onclick=function(){
+                // 循环导航栏列表，让当前的类名是空
+                for(let j=0;j<tab.length;j++){
+                    tab[j].className=""
+                }
+                this.className='tabcolor';
+                for(let k=0;k<tabContent.length;k++){
+                    tabContent[k].style.display='none';
+                }
+                tabContent[this.index].style.display='block';
+            }
+        }
+
+        // 控制表单显示
+        function showhide(){
+            let a= document.getElementById('regist_div');
+            console.log(1)
+            a.style.display='block';
+        }
+
+        // 用户名
+        function userbtn(){
+            let user = document.getElementById('user').value;
+            let userReg = /[\u4e00-\u9fa5_a-zA-Z0-9_]{4,10}/;            
+            if(!userReg.test(user)){
+                let userText=document.getElementById('userText');
+                userText.innerHTML="请输入4-10个字符";
+                return false;
+            }else{
+                userText.innerHTML="格式正确";
+                userText.style.color='green'
+                return true;
+            }
+        }
+        
+        // 密码
+        function passwordbtn(){
+            let password = document.getElementById('password').value;
+            let passwordReg = /^[\d\w]{6,12}$/;
+            
+            if(!passwordReg.test(password)){
+                let passwordText=document.getElementById('passwordText');
+                passwordText.innerHTML="请输入6~12位以内数字、字母或混合密码";
+                return false;
+            }else{
+                passwordText.innerHTML="格式正确";
+                passwordText.style.color='green'
+                return true;
+            }
+        }
+
+        // 邮箱
+        function mailbtn(){
+            let mail = document.getElementById('mail').value;
+            let mailReg = /^[\d\w]{1,9}@[\d\w]{1,9}\.[\w]{2,3}$/;
+            
+            if(!mailReg.test(mail)){
+                let mailText=document.getElementById('mailText');
+                mailText.innerHTML="错误!如:jack@163.com";
+                return false;
+            }else{
+                mailText.innerHTML="格式正确";
+                mailText.style.color='green'
+                return true;
+            }
+        }
+
+        // 身份证号码
+        function cardbtn(){
+            let card = document.getElementById('idCard').value;
+            let cardReg = /^\d{17}([0-9]|X)$/;            
+            if(!cardReg.test(card)){
+                let cardText=document.getElementById('cardText');
+                cardText.innerHTML="请输入18位身份证号码";
+                return false;
+            }else{
+                cardText.innerHTML="格式正确";
+                cardText.style.color='green'
+                return true;
+            }
+        }
+
+        // 手机号码
+        function telnumbtn(){
+            let telnum = document.getElementById('telnum').value;
+            let telnumReg = /^1[3|4|5|7|8]\d{9}$/;            
+            if(!telnumReg.test(telnum)){
+                let telnumText=document.getElementById('telnumText');
+                telnumText.innerHTML="请输入正确的手机号码";
+                return false;
+            }else{
+                telnumText.innerHTML="格式正确";
+                telnumText.style.color='green'
+                return true;
+            }
+        }
+
+    
+    </script>
+</body>
+</html>

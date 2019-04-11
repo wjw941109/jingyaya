@@ -1,0 +1,240 @@
+/*重置样式*/
+
+body, div, p, ul, ol, dl, dt, dd, li, form, input, table, th, td, img, h1, h2, h3, h4, h5, h6 {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-size: 12px;
+    font-style: normal;
+    color: #000;
+    font-family: 'Microsoft Yahei', '微软雅黑', 'Simsun', '宋体', 'Arial', sans-serif;
+    background: #fff;
+}
+
+em, b, i {
+    font-style: normal;
+}
+
+li {
+    list-style: none;
+}
+
+img {
+    border: none;
+}
+
+a {
+    text-decoration: none;
+    color: #777;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+
+/*公共属性*/
+
+.hide {
+    display: none;
+}
+
+.flt {
+    float: left;
+}
+
+.frt {
+    float: right;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+.clearfix:before, .clearfix:after {
+    display: table;
+    line-height: 0;
+    content: "";
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.header{
+    width: 1140px;
+    height: 70px;
+    margin: 0 auto;
+}
+.logo{
+    margin-right: 20px;
+}
+.logo img{
+    width: 70px;
+    height: 70px;
+}
+.nav a{
+    float: left;
+    line-height: 70px;
+    padding: 0 10px;
+    font-size: 16px;
+}
+
+.nav a:hover{
+    background: rgba(214, 208, 208, 0.2);
+    color: #188eee;
+    
+}
+
+.login-regist a{
+    display:inline-block;
+    line-height: 70px;
+    font-size: 16px;
+    text-align: center;
+    margin-left: 50px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.login-regist a:last-child{
+    margin-left: 10px;
+}
+.login-regist a:hover{
+    background: #107dd5;
+    color: #fff;
+    
+}
+
+.header-form{
+    line-height: 70px;
+    position: relative;
+}
+.header-form input{
+    border: none;
+    border-bottom: 1px solid #ddd;
+    outline: none;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    
+}   
+.header-form i{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+/* tab */
+.tabcolor{
+    background: #107dd5;
+    color: #fff;
+}
+
+#tabContent{
+    width: 1140px;
+    height: 300px;
+    background: rgb(230, 200, 200);
+    margin: 0 auto;
+    font-size: 20px;
+    text-align: center;
+    line-height: 300px;
+}
+
+#tabContent div{
+    display: none
+}
+
+
+/* 注册 */
+#regist_div{
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+.shade{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(87, 85, 85, 0.4);
+}
+
+#regist_div .regist{
+    width: 360px;
+    margin: 180px auto;
+    font-size: 16px;
+    position: absolute;
+    z-index: 111;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-radius: 10px;
+}
+#regist_div .regist h3{
+    text-align: center;
+    margin-top: 20px;
+}
+
+#regist_div .regist label{
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    margin-left: 40px;
+}
+#regist_div .regist input{
+    display: block;
+    width: 280px;
+    height: 30px;
+    margin: 0 auto;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+#regist_div .regist .verification{
+    margin-left: 40px;
+    width: 170px;
+    display: inline;
+}
+.gain{
+    background: #f0ad4e;
+    border-color: #eea236;
+    color: #fff;
+    border: none;
+    height: 30px;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.gain:hover{
+    color: #fff;
+    background-color: #d58512;
+    border-color: #985f0d;
+}
+
+#regist_div .regist .submit{
+    margin-top: 15px;
+    margin-bottom: 20px;
+    color: #fff;
+    background-color: #107dd5;
+    height: 40px;
+}
+.submit:hover{
+    color: #fff;
+    background-color: #0c61a6;
+    border-color: #0a4d84;
+}
+/* 输入错误提示 */
+#regist_div .text{
+    margin-left: 40px;
+    color: red;
+    margin-top: 6px;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>时间和正则</title>
+</head>
+<body>
+    <div id='demo'></div>
+    <script>
+        // 第一题:从_import("company/index")中取出company/index
+        let a = "_import('company/index')";
+        let b =new RegExp(/^_(.*?)\(['|"](.*?)['|"]\)$/)
+        let c = b.exec(a)
+        console.log(c);
+        let d =c[2]
+        console.log(d);
+
+        // 全局搜索
+        let se = 'aaaaaaa';
+        let j = /a/;
+        let z = /a/g
+        console.log(se.match(j));
+        console.log(se.match(z));
+        
+        //第二题:做一个中杠或者下划线分割的字符转驼峰写法
+        let e = prompt('请随便写一个以中杠或者下划线分割的字符');
+        uw = e.replace(/_[a-z]|-[a-z]/g,function(word){
+            console.log(word);
+            return word.substring(1).toUpperCase();
+        })
+        console.log(uw)
+
+        //第三题:做一个秒杀倒计时功能
+        let demo =document.getElementById('demo');
+        console.log(demo)
+        let endTime = new Date('2019/04/09 00:00:00');
+        setInterval(changetime,1000);
+        function changetime(){
+            let nowTime = new Date();
+            let miao = parseInt((endTime.getTime()-nowTime.getTime())/1000);
+            // console.log(haomiao);
+            let day = parseInt(miao/3600/24);
+            // console.log(day);
+            let hour = parseInt(miao/3600%24);
+            // console.log(hour);
+            let branch = parseInt(miao/60%60);
+            let s = parseInt(miao%60);
+            day<10? '0'+day :day;
+            hour<10? '0'+hour :hour;
+            branch<10? '0'+branch :branch;
+            s<10? '0'+s :s;
+            demo.innerHTML='距离浪静一周年还剩下'+day+'天'+hour+'小时'+branch+'分'+s+'秒'
+        }
+    </script>  
+</body>
+</html>
